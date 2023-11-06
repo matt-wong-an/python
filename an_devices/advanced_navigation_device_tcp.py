@@ -103,3 +103,8 @@ class AdvancedNavigationDeviceTCP(ABC):
     def request_packet(self, packet_id: PacketID):
         print(f"Requesting PacketIDs: {packet_id}")
         self.tcp.sendall(RequestPacket(packet_id).encode().bytes())
+
+
+    def send_config(self, data):
+        print("Sending config")
+        self.tcp.sendall(data)
