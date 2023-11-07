@@ -68,8 +68,7 @@ if __name__ == "__main__":
 
         # certus.get_device_and_configuration_information()
         
-        # Get config
-        anpp_config = open("Z:\\Data\\Log Files\\4Tel\\753422\\2023-08-28\\config.anpp","rb")
+        anpp_config = open("config.anpp","rb")
         config = anpp_config.read()
 
         prev_timer = int(time.time())
@@ -114,61 +113,6 @@ if __name__ == "__main__":
                                         f"\tResult:{acknowledge_packet.acknowledge_result}, "
                                         f"Packet ID:{acknowledge_packet.packet_id} "
                                     )
-                            # elif an_packet.id == PacketID.system_state:
-                            #     system_state_packet = certus_device.SystemStatePacket()
-                            #     if system_state_packet.decode(an_packet) == 0:
-                            #         print(
-                            #             f"System State Packet:\n"
-                            #             f"\tLatitude:{math.degrees(system_state_packet.latitude)}, "
-                            #             f"Longitude:{math.degrees(system_state_packet.longitude)}, "
-                            #             f"Height:{math.degrees(system_state_packet.height)}"
-                            #         )
-                            #         print(
-                            #             f"\tRoll:{math.degrees(system_state_packet.orientation[0])}, "
-                            #             f"Pitch:{math.degrees(system_state_packet.orientation[1])}, "
-                            #             f"Heading:{math.degrees(system_state_packet.orientation[2])}"
-                            #         )
-                            # elif an_packet.id == PacketID.raw_sensors:
-                            #     raw_sensor_packet = certus_device.RawSensorsPacket()
-                            #     if raw_sensor_packet.decode(an_packet) == 0:
-                            #         print(
-                            #             f"Raw Sensors Packet:\n"
-                            #             f"\tAccelerometers X:{raw_sensor_packet.accelerometers[0]}, "
-                            #             f"Y:{raw_sensor_packet.accelerometers[1]}, "
-                            #             f"Z:{raw_sensor_packet.accelerometers[2]}"
-                            #         )
-                            #         print(
-                            #             f"\tGyroscopes X:{math.degrees(raw_sensor_packet.gyroscopes[0])}, "
-                            #             f"Y:{math.degrees(raw_sensor_packet.gyroscopes[1])}, "
-                            #             f"Z:{math.degrees(raw_sensor_packet.gyroscopes[2])}"
-                            #         )
-                            # elif an_packet.id == PacketID.external_air_data:
-                            #     external_air_data_packet = (
-                            #         certus_device.ExternalAirDataPacket()
-                            #     )
-                            #     if external_air_data_packet.decode(an_packet) == 0:
-                            #         print(
-                            #             f"External Air Data Packet:\n"
-                            #             f"\tBarometric Altitude Set and Ready:{external_air_data_packet.flags.barometric_altitude_set_and_valid}\n "
-                            #             f"\tBarometric Altitude: {external_air_data_packet.barometric_altitude}m\n"
-                            #             f"\tAirspeed Set and Ready:{external_air_data_packet.flags.airspeed_set_and_valid}\n"
-                            #             f"\tAirspeed: {external_air_data_packet.airspeed}m/s"
-                            #         )
-                            # elif an_packet.id == PacketID.external_odometer:
-                            #     external_odometer_packet = (
-                            #         certus_device.ExternalOdometerPacket()
-                            #     )
-                            #     if external_odometer_packet.decode(an_packet) == 0:
-                            #         print(
-                            #             f"External Odometer Packet:\n"
-                            #             f"\tSpeed:{external_odometer_packet.speed}m/s\n"
-                            #             f"\tDistance Travelled:{external_odometer_packet.distance_travelled}m\n"
-                            #             f"\tReverse Detection Supported:{external_odometer_packet.flags.reverse_detection_supported}"
-                            #         )
-                            # elif an_packet.id != 0:
-                            #     print(
-                            #         f"Received {an_packet.id} of length:{an_packet.length}"
-                            #     )
                             elif an_packet.id >= 180:
                                 print(
                                     f"Received {an_packet.id} of length:{an_packet.length}"
