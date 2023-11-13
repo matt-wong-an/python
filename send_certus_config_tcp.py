@@ -65,8 +65,6 @@ if __name__ == "__main__":
         logFile = open(f"CertusLog_{now}.anpp", "xb")
 
         an_packet = ANPacket()
-
-        # certus.get_device_and_configuration_information()
         
         anpp_config = open("config.anpp","rb")
         config = anpp_config.read()
